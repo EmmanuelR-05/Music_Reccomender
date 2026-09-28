@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "./App.css";
+const API = "http://localhost:3001";
 
 function App() {
   const [query, setQuery] = useState("");
@@ -27,7 +28,7 @@ function App() {
       setError("");
       try {
         const res = await fetch(
-          `http://localhost:3001/api/search?q=${encodeURIComponent(term)}`
+          `${API}/api/search?q=${encodeURIComponent(term)}`
         );
         if (!res.ok) throw new Error("Search failed");
         const data = await res.json();

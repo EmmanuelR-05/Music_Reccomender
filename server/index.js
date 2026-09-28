@@ -8,7 +8,7 @@ function simplify(song) {
     id: song.trackId,
     title: song.trackName,
     artist: song.artistName,
-    artworkUrl: song.artworkUrl100.replace("100x100", "600x600"),
+    artworkUrl: (song.artworkUrl100 || "").replace("100x100", "600x600"),
     genre: song.primaryGenreName,
   };
 }
@@ -33,6 +33,7 @@ app.get("/api/search", async (req, res) => {
   }
 });
 
-app.listen(3001, () => {
-  console.log("Server running on http://localhost:3001");
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
 });
