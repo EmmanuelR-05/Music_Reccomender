@@ -30,3 +30,12 @@
 .results li:hover {
   background: #f9f9f9;
 }
+
+.status {
+  color: #666;
+  margin: 12px 0;
+}
+
+.status.error {
+  color: #c0392b;
+}
